@@ -5,7 +5,7 @@ const databaseUrl = process.env.DATABASE_URL || "postgres://postgres:pass@localh
 const db = new Sequelize(databaseUrl)
 
 db.sync({
-  // force: true
+  force: true
 })
   .then(() => {
     const Course = require('./course/model')

@@ -5,6 +5,7 @@ const bodyParser = require('body-parser')
 const userRouter = require('./user/router')
 const loginRouter = require('./auth/router')
 const courseRouter = require('./course/router')
+const recipeRouter = require('./recipe/router')
 
 const app = express()
 const port = 4000
@@ -18,6 +19,7 @@ app.use(
   userRouter,
   loginRouter,
   courseRouter,
+  recipeRouter,
 )
 
 app.listen(port, () => console.log(`\nListening on port ${port}.\n`))
