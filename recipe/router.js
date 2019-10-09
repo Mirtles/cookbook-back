@@ -25,12 +25,12 @@ router.post('/course/:courseId/recipe', auth, (req, res, next) => {
   const userId = req.user.id
   const { courseId } = req.params
 
+  console.table({ user: userId, course: courseId, params: req.params })
+
   Recipe.create({
-    where: {
-      ...req.body,
-      userId,
-      courseId
-    }
+    ...req.body,
+    userId,
+    courseId
   })
     .then(recipe => {
       res.send(recipe)
