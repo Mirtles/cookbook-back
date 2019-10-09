@@ -3,6 +3,7 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 
 const userRouter = require('./user/router')
+const loginRouter = require('./auth/router')
 
 const app = express()
 const port = 4000
@@ -14,6 +15,7 @@ app.use(
   corsMiddleware,
   parserMiddleware,
   userRouter,
+  loginRouter,
 )
 
 app.listen(port, () => console.log(`\nListening on port ${port}.\n`))

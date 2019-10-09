@@ -8,7 +8,6 @@ const router = new Router()
 
 router.post("/login", async (req, res, next) => {
   const { name, password } = req.body
-
   if (!name || !password) {
     return res.send({ message: "please send valid name and password" })
   }
@@ -22,7 +21,6 @@ router.post("/login", async (req, res, next) => {
   if (bcrypt.compareSync(req.body.password, user.password)) {
     return res.send({
       jwt: toJWT({ userId: user.id }),
-      user
     })
   }
 
